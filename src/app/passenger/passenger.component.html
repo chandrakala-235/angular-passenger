@@ -8,16 +8,13 @@
 </div>
 
 
-<ul *ngIf = "pname != null && ptype != null">
-  <li [ngClass] = "
-        {'premium' : ptype === 'Premium',
-        'fclass' : ptype === 'Firstclass',
-        'sclass' : ptype === 'Secondclass'}">{{ptype}}</li>
+<ul *ngIf = "pname && ptype">
+  <li [ngClass] = ptype>{{ptype}}</li>
   <li>{{pname}}</li>
 </ul>
 
 
-<table *ngIf = "allPass != null && pname == null">
+<table *ngIf = "allPass && !pname">
   <thead>
     <th>Passenger Name</th>
     <th>TicketType</th>
