@@ -1,0 +1,30 @@
+<h1> Passenger Details</h1>
+
+<div>
+  <button (click) = "showDetails('all')">All</button>
+  <button (click) = "showDetails('Premium')">Premium</button>
+  <button (click) = "showDetails('Firstclass')">First Class</button>
+  <button (click) = "showDetails('Secondclass')">Second Class</button>
+</div>
+
+
+<ul *ngIf = "pname != null && ptype != null">
+  <li [ngClass] = "
+        {'premium' : ptype === 'Premium',
+        'fclass' : ptype === 'Firstclass',
+        'sclass' : ptype === 'Secondclass'}">{{ptype}}</li>
+  <li>{{pname}}</li>
+</ul>
+
+
+<table *ngIf = "allPass != null && pname == null">
+  <thead>
+    <th>Passenger Name</th>
+    <th>TicketType</th>
+  </thead>
+  <tr *ngFor = "let pass of passengers">
+    <td>{{pass.name}}</td>
+    <td>{{pass.ticketType}}</td>
+  </tr>
+
+</table>
